@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>California Department of Justice OpenJustice</title>
+
+    <!--Google Analytics-->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-72688808-4', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="js/parallax.js"></script><!-- Parallax Banner -->
+    <script src="js/navbar.hide.js"></script><!-- Hide Navbar -->
+    <script src="js/scroll.js"></script><!-- Affix Sidebar/Scroll Functions -->
+
+    <!-- CSS -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Coda:400,800' rel='stylesheet' type='text/css'><!-- Google Font for Title -->
+    <link rel="stylesheet" type="text/css" href="css/cdup_tutorial.css"><!-- Custom Theme for know.data tutorial -->
+
+    <!-- Syntax Highlighting -->
+    <!-- Support for the following languages: -->
+    <!-- Apache, Bash, C#, C++, CSS, CoffeeScript, Device Tree, Diff, HTML, XML, HTTP, Ini, JSON, Java, JavaScript, Makefile, Markdown, Nginx, Objective-C, PHP, Perl, Python, Ruby, SQL, Fortran, Julia, Lisp, Lua, Mathematica, Matlab, Python-Profile, R, Scilab, Scala, Stata, Swift -->
+    <link rel="stylesheet" type="text/css" href="css/styles/github.css"><!-- Style for highlighting Code: Default to Github -->
+    <script src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><!-- Activate Code Highlighting -->
+
+</head>
+<body>
+    <nav id='navbar' class="nav navbar-default navbar-fixed-top navbar-border"><!-- Navbar -->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-links" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand navbar-color" href="http://openjustice.doj.ca.gov/data"><strong>Data Usability</strong></a>
+            </div> <!-- navbar-header -->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="collapse-links">
+                <ul class="nav navbar-nav navbar-color">
+                    <li class="disclaimer"><a href="https://oag.ca.gov">a project by California Department of Justice</a></li>
+                </ul>
+                                <ul class="nav navbar-nav navbar-right navbar-color">
+                                    <li><a href="http://openjustice.doj.ca.gov/data">Index</a></li>
+                                    <li><a href="https://oag.ca.gov">California Department of Justice</a></li>
+                                </ul>
+            </div><!-- navbar-collapse -->
+        </div><!-- container-fluid -->
+    </nav>
+
+    <!-- Banner -->
+    <section class="scroll">
+        <div class="scroll-overlay ">
+            <div class="title headtext">
+                <h1><span class="title-line" style="font-size:100%;">EXTENDING THE CRIMINAL JUSTICE DATA: DATA-DRIVEN OUTREACH</span></h1>
+                <h5><span class="title-line">by OPEN JUSTICE, CALIFORNIA DEPARTMENT OF JUSTICE</span></h5>
+                <h5><span class="title-line">June 2016</span></h5>
+            </div>
+        </div>
+    </section>
+
+    <!-- Body -->
+    
+    <section>
+        <div class="container-fluid content">
+            <div class="row">
+                <div id='' class="hidden-xs hidden-sm col-lg-2 col-md-2">
+                    <a href="https://commerce.gov/dataservice"><img class="footlogo" width="150px"src="img/ag-seal-cover.png"/></a>
+                </div>
+                <div id='content' class="col-lg-7 col-md-7">
+                    <em>As part of the <a href="https://www.openjustice.doj.ca.gov">OpenJustice Project</a>, <a href="https://www.oag.ca.gov">The California Department of Justice</a> has created a tutorial that processes California criminal justice data and provides interactive tools for visualization to keep the general public informed of the criminal justice happenings in the state. If you have questions, feel free to reach out to the California Department of Justice at <a href="mailto:DataUsability@doj.gov">DataUsability@doj.gov</a>.</em>
+                </div>
+            </div>
+            <hr>
+            
+            <br>
+            
+            <div class="row">
+                <div id='content' class="col-lg-10 col-md-10"><!-- Content -->
+
+                <section id='Walkthrough'>
+                    <h2 class="sectionhead">introduction</h2>
+                    <p>Are you interested in one of the datasets on the <a href="http://openjustice.doj.ca.gov/">OpenJustice CA portal</a>, but you want visualize it differently from their default? This is a walkthrough of how two hackers at the <a href="https://www.eventbrite.com/e/national-day-of-civic-hacking-tickets-25188025061">National Day of Civic Hacking</a> identified a problem in one of the OpenJustice visualizations, and  created a new, better visualization to improve OpenJustice.</p>  
+                </section>
+
+                <section id="Objective">
+                    <h2 class="sectionhead">Objective: Improve DOJ visualizations</h2>
+                    <p>This is the OpenJustice visualization that <a href="https://github.com/saikirandulla" class="github-username">@saikirandulla</a> and <a href="https://github.com/aprilw" class="github-username">@aprilw</a> were looking at:</p>
+
+                    <p><img src="img/existing_chart.png" alt="msdemeanor vs felony arrests by county" title="" height = "800" width = "880"/></p>
+                    <p>It plots <a href="http://openjustice.doj.ca.gov/agencies/charts">the rates of misdemeanor vs felony arrests by county</a>, providing a notion of the spread. They wondered, how has that changed over time? Well, you can filter by year:</p>
+
+                    <p><img src="img/existing_chart_years.png" alt="msdemeanor vs felony arrests by county with years filter" title="" height = "800" width = "880"/></p>
+
+<!--                     <iframe src="vis/dist.html" marginwidth="0" frameborder = "0"  marginheight="0" scrolling="no" height="480" width="100%" ></iframe>
+ -->                </section>
+               
+                <section id='Limitation'>
+                    <h2 class="sectionhead">Limitation</h2>
+                    <p>Okay...that provides the information we want, but given the filtering, it makes it hard to view time trends over time. The hackers decided to fix this.</p>
+
+                    <p></p>
+
+                    <p>In the <a href="#code">Code section</a> below, we include Python snippets that process any specified list of variables from the Variable Inventory. We use the output to show how to find areas of particular interest.</p>
+
+                </section>
+
+                   <section id='Inspiration'>
+                    <h2 class="sectionhead">Inspiration for Improvement</h2>
+                    <p>The interactive animation "The Wealth &amp; Health of Nations" suggests one possibility: displaying on year at a time, and animating the time parameter:</p>
+
+                    <p><a href="https://bost.ocks.org/mike/nations/"><img src="img/wealth_and_health_of_nations.png" alt="The Wealth &amp; Health of Nations" title="" height = "500" width = "880"/></a></p>
+
+                    
+
+                </section>
+
+                   <section id='Originalcode'>
+                    <h2 class="sectionhead">Original JavaScript for visualization</h2>
+                    <p>Okay...that provides the information we want, but given the filtering, it makes it hard to view time trends over time. The hackers decided to fix this.</p>
+
+                    <p>In the <a href="#code">Code section</a> below, we include Python snippets that process any specified list of variables from the Variable Inventory. We use the output to show how to find areas of particular interest.</p>
+                    <pre><code>
+function x(d) { return d.income; }
+function y(d) { return d.lifeExpectancy; }
+function radius(d) { return d.population; }
+function color(d) { return d.region; }
+function key(d) { return d.name; }
+
+// Chart dimensions.
+var margin = {top: 19.5, right: 19.5, bottom: 19.5, left: 39.5},
+    width = 960 - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+// Various scales. These domains make assumptions of data, naturally.
+var xScale = d3.scale.log().domain([300, 1e5]).range([0, width]),
+    yScale = d3.scale.linear().domain([10, 85]).range([height, 0]),
+    radiusScale = d3.scale.sqrt().domain([0, 5e8]).range([0, 40]),
+    colorScale = d3.scale.category10();
+
+// The x & y axes.
+var xAxis = d3.svg.axis().orient("bottom").scale(xScale).ticks(12, d3.format(",d")),
+    yAxis = d3.svg.axis().scale(yScale).orient("left");
+
+// Create the SVG container and set the origin.
+var svg = d3.select("#chart").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// Add the x-axis.
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+// Add the y-axis.
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis);
+
+// Add an x-axis label.
+svg.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "end")
+    .attr("x", width)
+    .attr("y", height - 6)
+    .text("income per capita, inflation-adjusted (dollars)");
+
+// Add a y-axis label.
+svg.append("text")
+    .attr("class", "y label")
+    .attr("text-anchor", "end")
+    .attr("y", 6)
+    .attr("dy", ".75em")
+    .attr("transform", "rotate(-90)")
+    .text("life expectancy (years)");
+
+// Add the year label; the value is set on transition.
+var label = svg.append("text")
+    .attr("class", "year label")
+    .attr("text-anchor", "end")
+    .attr("y", height - 24)
+    .attr("x", width)
+    .text(1800);
+
+// Load the data.
+d3.json("nations.json", function(nations) {
+
+  // A bisector since many nation's data is sparsely-defined.
+  var bisect = d3.bisector(function(d) { return d[0]; });
+
+  // Add a dot per nation. Initialize the data at 1800, and set the colors.
+  var dot = svg.append("g")
+      .attr("class", "dots")
+    .selectAll(".dot")
+      .data(interpolateData(1800))
+    .enter().append("circle")
+      .attr("class", "dot")
+      .style("fill", function(d) { return colorScale(color(d)); })
+      .call(position)
+      .sort(order);
+
+  // Add a title.
+  dot.append("title")
+      .text(function(d) { return d.name; });
+
+  // Add an overlay for the year label.
+  var box = label.node().getBBox();
+
+  var overlay = svg.append("rect")
+        .attr("class", "overlay")
+        .attr("x", box.x)
+        .attr("y", box.y)
+        .attr("width", box.width)
+        .attr("height", box.height)
+        .on("mouseover", enableInteraction);
+
+  // Start a transition that interpolates the data based on year.
+  svg.transition()
+      .duration(30000)
+      .ease("linear")
+      .tween("year", tweenYear)
+      .each("end", enableInteraction);
+
+  // Positions the dots based on data.
+  function position(dot) {
+    dot .attr("cx", function(d) { return xScale(x(d)); })
+        .attr("cy", function(d) { return yScale(y(d)); })
+        .attr("r", function(d) { return radiusScale(radius(d)); });
+  }
+
+  // Defines a sort order so that the smallest dots are drawn on top.
+  function order(a, b) {
+    return radius(b) - radius(a);
+  }
+
+  // After the transition finishes, you can mouseover to change the year.
+  function enableInteraction() {
+    var yearScale = d3.scale.linear()
+        .domain([1800, 2009])
+        .range([box.x + 10, box.x + box.width - 10])
+        .clamp(true);
+
+    // Cancel the current transition, if any.
+    svg.transition().duration(0);
+
+    overlay
+        .on("mouseover", mouseover)
+        .on("mouseout", mouseout)
+        .on("mousemove", mousemove)
+        .on("touchmove", mousemove);
+
+    function mouseover() {
+      label.classed("active", true);
+    }
+
+    function mouseout() {
+      label.classed("active", false);
+    }
+
+    function mousemove() {
+      displayYear(yearScale.invert(d3.mouse(this)[0]));
+    }
+  }
+
+  // Tweens the entire chart by first tweening the year, and then the data.
+  // For the interpolated data, the dots and label are redrawn.
+  function tweenYear() {
+    var year = d3.interpolateNumber(1800, 2009);
+    return function(t) { displayYear(year(t)); };
+  }
+
+  // Updates the display to show the specified year.
+  function displayYear(year) {
+    dot.data(interpolateData(year), key).call(position).sort(order);
+    label.text(Math.round(year));
+  }
+
+  // Interpolates the dataset for the given (fractional) year.
+  function interpolateData(year) {
+    return nations.map(function(d) {
+      return {
+        name: d.name,
+        region: d.region,
+        income: interpolateValues(d.income, year),
+        population: interpolateValues(d.population, year),
+        lifeExpectancy: interpolateValues(d.lifeExpectancy, year)
+      };
+    });
+  }
+
+  // Finds (and possibly interpolates) the value for the specified year.
+  function interpolateValues(values, year) {
+    var i = bisect.left(values, year, 0, values.length - 1),
+        a = values[i];
+    if (i > 0) {
+      var b = values[i - 1],
+          t = (year - a[0]) / (b[0] - a[0]);
+      return a[1] * (1 - t) + b[1] * t;
+    }
+    return a[1];
+  }
+});</code></pre>                    
+
+                </section>
+
+                <section id="Code-Changes">
+                    <h2 class="sectionhead">Code Changes</h2>
+                    <p>Certain parameters of the visualization such as axes, year labels and their variables along with the axes scales needed to be changed. Updated code here:</p>
+                    <h4>Updated Variable names </h4>
+                    <pre><code>
+function x(d) { return d.felony; }
+function y(d) { return d.misdemeanor; }
+function radius(d) { return d.population; }
+function color(d) { return d.county; }
+function key(d) { return d.county; }
+
+function interpolateData(year) {
+return counties.map(function(d) {
+return {
+county: d.county,
+felony: parseFloat(interpolateValues(d.felony, year)).toFixed(2),
+population: Math.round(interpolateValues(d.population, year)),
+misdemeanor: parseFloat(interpolateValues(d.misdemeanor, year)).toFixed(2)
+};
+});
+} 
+                        
+                    </code></pre>
+                    <h4>Updated Year Label </h4>
+                    <pre><code>
+var year = d3.interpolateNumber(2005, 2014);
+                    </code></pre>
+                    <h4>Updated Axes </h4>
+                    <pre><code>
+var xScale = d3.scale.linear().domain([0, 3]).range([0, width]),
+yScale = d3.scale.linear().domain([0, 3.5]).range([height, 0]),
+radiusScale = d3.scale.sqrt().domain([0, 4e6]).range([0, 40]),
+                    </code></pre>   
+                    <h4>Input Data Preparation</h4>
+                    <p>There was also a need to create a python script to convert a csv file into the correct json format. Code for this here.</p>
+                    <pre><code>
+import csv
+import json
+import sys, getopt
+
+
+//To run (from inside this directory):
+python data_converter.py -i ../data/data_clean.csv -o ../data/test.json
+(from main directory)
+python scripts/data_converter.py -i data/data_clean.csv -o data/test.json
+
+def main(argv):
+  input_file = ''
+  output_file = ''
+  try:
+      opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
+  except getopt.GetoptError:
+      print('data_converter.py -i <'path to inputfile'> -o <'path to outputfile'>')
+      sys.exit(2)
+  for opt, arg in opts:
+      if opt == '-h':
+          print('data_converter.py -i <'path to inputfile'> -o <'path to outputfile'>')
+          sys.exit()
+      elif opt in ("-i", "--ifile"):
+          input_file = arg
+      elif opt in ("-o", "--ofile"):
+          output_file = arg
+  csv_to_json(input_file, output_file)
+
+def csv_to_json(file, json_file):
+  csv_rows = []
+  with open(file) as csvfile:
+    reader = csv.DictReader(csvfile)
+    title = reader.fieldnames
+    counties = {}
+
+    for row in reader:
+      if row['county'] in counties:
+        counties[row['county']]['felony'].append([int(row['year']), float(row['felony'])])
+        counties[row['county']]['misdemeanor'].append([int(row['year']), float(row['misdemeanor'])])
+        counties[row['county']]['population'].append([int(row['year']), int(row['population'])])
+
+      else:
+        counties[row['county']] = {'county': row['county']}
+        counties[row['county']]['felony'] = [[int(row['year']), float(row['felony'])]]
+        counties[row['county']]['misdemeanor'] = [[int(row['year']), float(row['misdemeanor'])]]
+        counties[row['county']]['population'] = [[int(row['year']), int(row['population'])]]
+
+
+    print(counties.values())
+    write_json(list(counties.values()), json_file)
+     
+
+def write_json(data, json_file):
+  with open(json_file, "w") as f:
+    f.write(json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '),ensure_ascii=False))
+
+if __name__ == "__main__":
+   main(sys.argv[1:])   
+
+                    </code></pre>
+                </section>
+
+                <section id="Finalviz">
+
+                    <h2 class="sectionhead">Final Visualization</h2>
+
+                    <p>This is the result of all the hard work!</p>
+                    <p><img src="img/screenshot.png" alt="screenshot" height = "450" width = "880"/></p>
+
+
+                    <p>To get started quickly, the code for this tutorial can be found at the following <a href="https://github.com/openjustice/mvsf">Github repo</a>.</p>
+
+                </section>
+
+                </div><!-- Content -->
+                  
+                <div id='sidebar' class="hidden-xs hidden-sm col-lg-2 col-md-2"><!-- Sidebar -->
+                       
+                    <ul id='featured-nav' class="nav nav-list featured-nav nav-stacked">
+                      
+                        
+                        <li>
+                            <ul class="fa-style"><!-- Font Awesome -->
+                               <!-- <li><a href="https://github.com/CommerceDataService/tutorial_ms_powerbi"><i class="fa fa-file-archive-o fa-lg"></i></a></li>
+                                <li><a href="https://github.com/CommerceDataService/tutorial_ms_powerbi"><i class="fa fa-file-code-o fa-lg"></i></a></li>
+                                <li><a href="https://github.com/CommerceDataService/tutorial_ms_powerbi"><i class="fa fa-github-square fa-lg"></i></a></li>-->
+                            </ul>
+                        </li>
+                        <li>
+                            
+                        </li>
+                        <li>
+                            <ul class="fa-style"><!-- Font Awesome -->
+                                <!--<li><a href="https://github.com/CommerceDataService/tutorial_ms_powerbi"><i class="fa fa-file-archive-o fa-lg"></i></a></li>
+                                <li><a href="https://github.com/CommerceDataService/tutorial_ms_powerbi"><i class="fa fa-file-code-o fa-lg"></i></a></li>
+                                <li><a href="https://github.com/CommerceDataService/tutorial_ms_powerbi" title="Github Repo for MS Power BI Part 1"><i class="fa fa-github-square fa-lg"></i></a></li>-->
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="fa-style"><!-- Font Awesome -->
+                                <li><a href="https://github.com/openjustice/tutorial_doj" title="Github Repo for Tutorial">Github Repo  <i class="fa fa-github-square fa-lg"></i></a></li>
+                                <!-- <li><a href="usds_rank.ipynb"  title="Jupyter Notebook of Getting Started"><i class="fa fa-file-code-o fa-lg"></i></a></li> -->
+                                <!-- <li><a href="https://twitter.com/commercegovdata" title="Twitter handle for CDS"><i class="fa fa-twitter-square fa-lg"></i></a></li>< -->
+                                <!--<li><a href=""><i class="fa fa-linkedin-square fa-lg"></i></a></li>
+                                <li><a href=""><i class="fa fa-facebook-square fa-lg"></i></a></li>-->
+                            </ul>
+                        </li>
+                        <li><a href="#Walkthrough">Introduction</a></li>
+                        <li><a href="#Objective">Objective: Improve DOJ Visualization</a></li>
+                        <li><a href="#Limitation">Limitation</a></li>
+                        <li><a href="#Inspiration">Inspiration for Improvement</a></li>
+                        <li><a href="#Originalcode">Original JS for visualization</a></li>
+                        <li><a href="#Code-Changes">Changes to the Code</a></li>
+                        <li><a href="#Finalviz">Final Visualization</a></li>
+                        
+                    </ul>
+                </div><!-- Sidebar -->
+            </div><!-- Row -->
+        </div><!-- Container-fluid -->
+    </div>
+
+</body>
+</html>

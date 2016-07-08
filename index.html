@@ -67,8 +67,8 @@
     <section class="scroll">
         <div class="scroll-overlay ">
             <div class="title headtext">
-                <h1><span class="title-line" style="font-size:100%;">DATA VISUALIZATION TUTORIAL: EXTENDING THE USE CRIMINAL JUSTICE DATA</span></h1>
-                <h5><span class="title-line">by OPEN JUSTICE, CALIFORNIA DEPARTMENT OF JUSTICE</span></h5>
+                <h1><span class="title-line" style="font-size:100%;">CALIFORNIA CRIMINAL JUSTICE DATA VISUALIZATION TUTORIAL: MISDEMEANORS vs. FELONIES</span></h1>
+                <h5><span class="title-line">by OPEN JUSTICE TEAM, CALIFORNIA DEPARTMENT OF JUSTICE</span></h5>
             </div>
         </div>
     </section>
@@ -82,7 +82,7 @@
                     <a href="https://commerce.gov/dataservice"><img class="footlogo" width="150px"src="img/ag-seal-cover.png"/></a>
                 </div>
                 <div id='content' class="col-lg-7 col-md-7">
-                    <em>As part of the <a href="https://www.openjustice.doj.ca.gov">OpenJustice Project</a>, <a href="https://www.oag.ca.gov">The California Department of Justice</a> has created a tutorial that processes California criminal justice data and provides interactive tools for visualization to keep the general public informed of the criminal justice happenings in the state. If you have questions, feel free to reach out to the California Department of Justice at <a href="mailto:DataUsability@doj.gov">DataUsability@doj.gov</a>.</em>
+                    <em>As part of the <a href="https://www.openjustice.doj.ca.gov" target="_blank">OpenJustice initiative</a> of <a href="https://www.oag.ca.gov" target="_blank">The California Department of Justice</a>, the OpenJustice team in collaboration with volunteers from <a href="https://www.codeforamerica.org/" target="_blank">Code for America</a> has created this tutorial that shows how one can use data provided in the <a href="https://openjustice.doj.ca.gov/data">OpenJustice CA data portal</a>, to create a new, improved visualization. This visualization exemplifies the efforts of the CA DOJ to advance its broader goals of encouraging the use of data and evidence to help the public understand and engage with the criminal justice system in California. <br><br>The OpenJustice CA project relies on help from the community to build better, more usable visualizations. If you have questions, feel free to reach out to the CA DOJ OpenJustice team at <a href="mailto:DataUsability@doj.gov">Openjustice@doj.ca.gov</a>.</em>
                 </div>
             </div>
             <hr>
@@ -94,46 +94,36 @@
 
                 <section id='Walkthrough'>
                     <h2 class="sectionhead">introduction</h2>
-                    <p>Are you interested in one of the datasets on the <a href="http://openjustice.doj.ca.gov/">OpenJustice CA portal</a>, but you want visualize it differently from their default? This is a tutorial on how one can use data provided in the <a href="https://openjustice.doj.ca.gov/data">OpenJustice CA data portal</a>, to create a new, improved visualization. The OpenJustice CA project relies on help from the community to build a better, more useful product.</p>  
+                    <p>Let us take the 'Misdemeanors vs Felonies, Aggregate of all ethnicities' visualization on the <a href="http://openjustice.stg.doj.ca.gov/agencies/charts">OpenJustice CA Charts portal</a>, and visualize it differently from default. The dataset can be downloaded from <a href="http://openjustice.stg.doj.ca.gov/agencies/charts">OpenJustice CA portal</a>. This tutorial shows how to create an interactive visualization showing the trends of misdemeanor and felony rates in the 58 counties of California relative to the state average rates.</p>  
                 </section>
 
                 <section id="Objective">
-                    <h2 class="sectionhead">Objective: Improve DOJ visualizations</h2>
+                    <h3 class="sectionhead">Objective: Make the visualization more interactive</h2>
                     <p>Suppose we wanted to improve the following visualization from the OpenJustice website.</p>
 
-                    <p><img src="img/existing_chart.png" alt="msdemeanor vs felony arrests by county" title="" height = "500" width = "580" align-items=center/></p>
-                    <p>This visualization plots <a href="http://openjustice.doj.ca.gov/agencies/charts">the rates of misdemeanor vs felony arrests by county</a>. However, when one want to look at how trends change over time, we see the limitation of the current visualization:</p>
+                    <p><img src="img/existing_chart.png" alt="msdemeanor vs felony arrests by county" title="" height = "480" width = "580" align-items=center/></p>
+                    <p>This visualization plots <a href="http://openjustice.doj.ca.gov/agencies/charts">the rates of misdemeanor vs felony arrests by county</a>. However, when one wants to look at how trends change over time and wants to spot outliers along the timeline without switching filters, we see the limitation of the current visualization</p>
 
-                    <p><img src="img/existing_chart_years.png" alt="msdemeanor vs felony arrests by county with years filter" title="" height = "500" width = "580"/></p>
+                    <p><img src="img/existing_chart_years.png" alt="msdemeanor vs felony arrests by county with years filter" title="" height = "480" width = "580"/></p>
 
 <!--                     <iframe src="vis/dist.html" marginwidth="0" frameborder = "0"  marginheight="0" scrolling="no" height="480" width="100%" ></iframe>
  -->             
                
                 
                   
-                    <p>While the visualization does contain the information we want, given the filtering system, it is hard to view how\ trends over time. Let's fix this.</p>
-
-       
-
-                    <p>In the <a href="#code">Code section</a> below, we include Python snippets that process any specified list of variables from the Variable Inventory. We use the output to show how to find areas of particular interest.</p>
+                    <p>While the visualization does contain the information we want, given the filtering system, it is hard to view and compare trends over time for individual counties. Let's rethink this.</p>
 
                 </section>
 
                    <section id='Inspiration'>
                     <h2 class="sectionhead">Inspiration for Improvement</h2>
-                    <p>The interactive animation "The Wealth &amp; Health of Nations" suggests one possibility: displaying on year at a time, and animating the time parameter:</p>
-
+                    <p>The interactive animation <a href = "https://bost.ocks.org/mike/nations/" target= _blank> The Wealth &amp; Health of Nations</a> suggests one possibility: displaying the set of values one year at a time and animating the year automatically to show trends over time. It also allows the user to manually animate the time parameter for conducting analysis:</p>
                     <p><a href="https://bost.ocks.org/mike/nations/"><img src="img/wealth_and_health_of_nations.png" alt="The Wealth &amp; Health of Nations" title="" height = "500" width = "880"/></a></p>
-
-                    
-
                 </section>
 
                    <section id='Originalcode'>
-                    <h2 class="sectionhead">Original JavaScript for visualization</h2>
-                    <p>Okay...that provides the information we want, but given the filtering, it makes it hard to view time trends over time. The hackers decided to fix this.</p>
-
-                    <p>In the <a href="#code">Code section</a> below, we include Python snippets that process any specified list of variables from the Variable Inventory. We use the output to show how to find areas of particular interest.</p>
+                    <h2 class="sectionhead">Original code for visualization</h2>
+                    <p>This is the javascript code for Mike Bostock's The Wealth and Health of Nations.</p>
                     <pre><code>
 function x(d) { return d.income; }
 function y(d) { return d.lifeExpectancy; }
@@ -322,7 +312,7 @@ d3.json("nations.json", function(nations) {
 
                 <section id="Code-Changes">
                     <h2 class="sectionhead">Code Changes</h2>
-                    <p>Certain parameters of the visualization such as axes, year labels and their variables along with the axes scales needed to be changed. Updated code here:</p>
+                    <p>Certain parameters of the visualization such as axes, year labels and their variables along with the axes scales needed to be changed. Code updates required as below:</p>
                     <h4>Updated Variable names </h4>
                     <pre><code>
 function x(d) { return d.felony; }
@@ -422,11 +412,11 @@ if __name__ == "__main__":
 
                     <h2 class="sectionhead">Final Visualization</h2>
 
-                    <p>This is the result of all the hard work!</p>
+                    <p>The actual visualization can be found <a href ="http://openjustice.github.io/mvsf/" target=_blank>here</a>. The following is a snapshot of the final visualization:</p>
                     <p><img src="img/screenshot.png" alt="screenshot" height = "450" width = "880"/></p>
 
 
-                    <p>To get started quickly, the code for this tutorial can be found at the following <a href="https://github.com/openjustice/mvsf">Github repo</a>.</p>
+                    <p>To get started quickly, the complete code for this visualization can be found at the following <a href="https://github.com/openjustice/mvsf">Github repo</a>.</p>
 
                 </section>
 
@@ -464,9 +454,9 @@ if __name__ == "__main__":
                             </ul>
                         </li>
                         <li><a href="#Walkthrough">Introduction</a></li>
-                        <li><a href="#Objective">Objective: Improve DOJ Visualization</a></li>
+                        <!-- <li><a href="#Objective">Objective: Improve DOJ Visualization</a></li> -->
                         <li><a href="#Inspiration">Inspiration for Improvement</a></li>
-                        <li><a href="#Originalcode">Original JS for visualization</a></li>
+                        <li><a href="#Originalcode">Original Code for visualization</a></li>
                         <li><a href="#Code-Changes">Changes to the Code</a></li>
                         <li><a href="#Finalviz">Final Visualization</a></li>
                         

@@ -313,7 +313,7 @@ d3.json("nations.json", function(nations) {
 
                 <section id="Code-Changes">
                     <h2 class="sectionhead">Code Changes</h2>
-                    <p>Certain parameters of the visualization such as axes, year labels and their variables along with the axes scales needed to be changed. Code updates required as below:</p>
+                    <p>Certain parameters of the visualization such as axes, year labels and their variables along with the axes scales need to be changed, as below:</p>
                     <h4>Updated Variable names </h4>
                     <pre><code>
 function x(d) { return d.felony; }
@@ -345,7 +345,7 @@ yScale = d3.scale.linear().domain([0, 3.5]).range([height, 0]),
 radiusScale = d3.scale.sqrt().domain([0, 4e6]).range([0, 40]),
                     </code></pre>   
                     <h4>Input Data Preparation</h4>
-                    <p>There was also a need to create a python script to convert a csv file into the correct json format. Code for this here.</p>
+                    <p>Since the javascript accepts input data in a particular json format, we wrote a python script to convert a csv file to the required format, as follows: </p>
                     <pre><code>
 import csv
 import json
@@ -413,7 +413,7 @@ if __name__ == "__main__":
 
                     <h2 class="sectionhead">Final Visualization</h2>
 
-                    <p>The actual visualization can be found <a href ="http://openjustice.github.io/mvsf/" target=_blank>here</a>. The following is a snapshot of the final visualization:</p>
+                    <p>The resulting visualization can be found <a href ="http://openjustice.github.io/mvsf/" target=_blank>here</a>. The following is a snapshot of the final visualization:</p>
                     <p><img src="img/screenshot.png" alt="screenshot" height = "450" width = "880"/></p>
 
 
